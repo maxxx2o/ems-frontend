@@ -1,101 +1,70 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import Image from 'next/image';
+import Link from 'next/link';
+import Navbar from '@/components/Navbar';
+import { CiLocationOn } from "react-icons/ci";
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-[#0f051d] to-[#1a103c] text-white py-10 px-6 md:px-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+          <div>
+            <p className="text-sm mb-2">All the fun starts here.</p>
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              Book your <br /> Tickets for Event!
+            </h1>
+            <ul className="mt-6 mb-6 space-y-1 list-disc list-inside text-sm">
+              <li>Safe, Secure, Reliable ticketing.</li>
+              <li>Your ticket to live entertainment!</li>
+            </ul>
+            <Link
+              href="#featured-events"
+              className="inline-block bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-gray-200"
+            >
+              View More →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-4 py-20">
+            <Image src="/singer1.webp" alt="Hero1" width={200} height={300} className="rounded-md" />
+            <Image src="/raftaar.jpeg" alt="Hero2" width={200} height={300} className="rounded-md" />
+            <Image src="/arjitsingh.avif" alt="Hero3" width={200} height={300} className="rounded-md" />
+            <Image src="/yoyohoney.jpeg" alt="Hero4" width={200} height={300} className="rounded-md" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      <div id="featured-events" className="bg-[#0b1221] text-white py-10 px-10 md:px-10 rounded-xl w-full max-w-100">
+        <h2 className="text-3xl font-bold mb-6">Featured Events</h2>
+        <p className="mb-4 text-sm">Be sure not to miss these Events.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-[#1a2238] p-4 rounded-md">
+            <Image src="/AnubhavBassi.jpg" alt="Event 1" width={400} height={250} className="rounded-md mb-2" />
+            <p><CiLocationOn />sanjiv auditorium Surat</p>
+            <h3 className="font-bold">Kis Ko Batana Mat</h3>
+            <p>29 Jun | Comedy Show</p>
+            <button className="mt-2 text-sm underline">Get Tickets →</button>
+          </div>
+          <div className="bg-[#1a2238] p-4 rounded-md">
+            <Image src="/theweekend.avif" alt="Event 2" width={400} height={250} className="rounded-md mb-2" />
+            <p><CiLocationOn />venue to Announced: Indore</p>
+            <h3 className="font-bold">Afterverse-A The Weekend </h3>
+            <p>16 Aug | Music Show</p>
+            <button className="mt-2 text-sm underline">Get Tickets →</button>
+          </div>
+          <div className="bg-[#1a2238] p-4 rounded-md">
+            <Image src="/lovelab.avif" alt="Event 3" width={400} height={250} className="rounded-md mb-2" />
+            <p><CiLocationOn />Regional Park: indore</p>
+            <h3 className="font-bold">LOVE LAB</h3>
+            <p>13 Jun | Meetups</p>
+            <button className="mt-2 text-sm underline">Get Tickets →</button>
+          </div>
+        </div>
+      </div>
+      </section>
+    </>
   );
 }
